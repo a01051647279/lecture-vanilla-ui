@@ -1,5 +1,6 @@
 import FormView from '../views/FormView.js'
 import ResultView from '../views/ResultView.js'
+import TabView from '../views/TabView.js'
 
 import SearchModel from '../models/SearchModel.js'
 
@@ -12,6 +13,8 @@ export default {
       .on('@reset', () => this.onResetForm())
 
     ResultView.setup(document.querySelector('#search-result'))
+
+    TabView.setup(document.querySelector('#tabs'))
   },
 
   search(value) {
