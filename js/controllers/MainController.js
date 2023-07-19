@@ -21,6 +21,7 @@ export default {
   onSearchResult(query) {
     SearchModel.list(query) //
       .then((res) => {
+        ResultView.show()
         ResultView.render(res)
       })
   },
@@ -30,6 +31,6 @@ export default {
   },
 
   onResetForm() {
-    debugger
+    ResultView.hide()
   },
 }
