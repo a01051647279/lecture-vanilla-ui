@@ -10,10 +10,19 @@ FormView.setup = function (el) {
   this.resetEl = this.el[1]
 
   this.showResetBtn(false)
+  this.bindEvents()
 }
 
 FormView.showResetBtn = function (show) {
-  if (!show) this.resetEl.style.display = 'none'
+  this.resetEl.style.display = show ? '' : 'none'
+}
+
+FormView.bindEvents = function () {
+  this.inputEl.addEventListener('keyup', (e) => this.handleKeyup(e))
+}
+
+FormView.handleKeyup = function (e) {
+  this.showResetBtn(e.target.value)
 }
 
 export default FormView
