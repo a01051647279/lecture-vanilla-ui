@@ -7,7 +7,8 @@ const TabView = Object.create(View)
 TabView.setup = function (el) {
   this.init(el)
 
-  this.setActiveTab('추천 검색어')
+  this.tabName = '추천 검색어'
+  this.setActiveTab(this.tabName)
   this.bindEvents()
 
   return this
@@ -26,6 +27,7 @@ TabView.bindEvents = function () {
 }
 
 TabView.handleClick = function (content) {
+  this.tabName = content
   this.setActiveTab(content)
   this.emit('@change', { tabName: content })
 }

@@ -43,23 +43,37 @@ export default {
   },
 
   async onSearchKeyword() {
+    console.log('onSearchKeyword()')
     const data = await KeywordModel.list()
     return data
   },
 
   onSearchHistory() {
+    console.log('onSearchHistory()')
     HistoryModel.list() //
       .then((data) => HistoryView.render(data))
   },
 
   onSubmitForm(input) {
     this.search(input)
-    KeywordView.hide()
+    if (TabView.tabName === '추천 검색어') {
+      KeywordView.hide()
+    }
+    if (TabView.tabName === '최근 검색어') {
+      HistoryView.hide()
+    }
+    HistoryModel.add(input)
   },
 
   onResetForm() {
     ResultView.hide()
-    KeywordView.show()
+    if (TabView.tabName === '추천 검색어') {
+      KeywordView.show()
+    }
+    if (TabView.tabName === '최근 검색어') {
+      this.onSearchHistory()
+      HistoryView.show()
+    }
   },
 
   onChangeTab(tabName) {
@@ -80,7 +94,6 @@ export default {
   onClickKeyword(keyword) {
     this.search(keyword)
     KeywordView.hide()
-    TabView.hide()
     FormView.inputEl.value = keyword
     FormView.showResetBtn(true)
   },
