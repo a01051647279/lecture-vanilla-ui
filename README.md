@@ -2,18 +2,18 @@
 
 > 목적: 웹 프론트엔드 기초를 다지기 위한 방안으로 바닐라 JS를 MVC 패턴을 활용하기
 
-## 개발 환경
+## 🔨 개발 환경
 
 - [Chrome](https://www.google.com/intl/ko/chrome/)
 - [Git](https://git-scm.com/downloads)
 
-## 기술 스택
+## 🛠️ 기술 스택
 
 - HTML5
 - CSS3
 - Vanilla JS(ES6+)
 
-## 구현 사항
+## 🛠️ 구현 사항
 
 - [x] 검색 폼 구현
 
@@ -51,13 +51,20 @@
 
 ## 📷 메인 화면
 
-<div width="300"><img width="300" src="https://github.com/a01051647279/lecture-vanilla-basic/assets/134060130/a508f8d7-ca3e-4370-988c-15e7f28e560c">
+<div width="300"><img width="300" src="https://github.com/a01051647279/lecture-vanilla-ui/assets/134060130/e97bad43-1fa1-4bf6-8df2-20519bbe1d1a">
 <div/>
 
 ## 📸 시연 화면
 
 <div display="flex">
-  <img width="200" src="https://github.com/a01051647279/lecture-vanilla-basic/assets/134060130/186c40a5-46b6-42bd-b47b-2c23f2667d9d">
-  <img width="200" src="https://github.com/a01051647279/lecture-vanilla-basic/assets/134060130/809969f5-74b2-40db-8b47-08214e2e196b">
-  <img width="200" src="https://github.com/a01051647279/lecture-vanilla-basic/assets/134060130/a4fc225d-0af9-4f8f-92d1-388f473d8cc5">
+  <img width="300" src="https://github.com/a01051647279/lecture-vanilla-ui/assets/134060130/e0995c9d-40f1-475a-9407-90f93fa5c970">
+  <img width="300" src="https://github.com/a01051647279/lecture-vanilla-ui/assets/134060130/59de3657-bfcd-4007-8ca0-c8d8f04ff897">
 <div />
+
+## 📝 참고 자료
+
+- MDN: https://developer.mozilla.org/ko/
+
+## 🌄 출처 및 정보
+
+- jeonghwan-kim: https://github.com/jeonghwan-kim?tab=repositories
