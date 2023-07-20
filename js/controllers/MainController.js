@@ -1,18 +1,23 @@
 import FormView from '../views/FormView.js'
 import ResultView from '../views/ResultView.js'
 import TabView from '../views/TabView.js'
+import KeywordView from '../views/KeywordView.js'
 
 import SearchModel from '../models/SearchModel.js'
+import KeywordModel from '../models/KeywordModel.js'
 
 const tag = '[MainController]'
 
 export default {
-  init() {
+  async init() {
     FormView.setup(document.querySelector('form')) //
       .on('@submit', (e) => this.onSubmitForm(e.detail.input))
       .on('@reset', () => this.onResetForm())
 
     ResultView.setup(document.querySelector('#search-result'))
+
+    KeywordView.setup(document.querySelector('#search-keyword')) //
+      .render(await this.onSearchKeyword())
 
     TabView.setup(document.querySelector('#tabs'))
   },
@@ -27,6 +32,11 @@ export default {
         ResultView.show()
         ResultView.render(res)
       })
+  },
+
+  async onSearchKeyword() {
+    const data = await KeywordModel.list()
+    return data
   },
 
   onSubmitForm(input) {
