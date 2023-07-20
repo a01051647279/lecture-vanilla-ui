@@ -2,9 +2,9 @@ import { formatDate } from '../utils/date.js'
 
 export default {
   data: [
-    { keyword: '검색기록2', date: '12.03' },
-    { keyword: '검색기록1', date: '12.02' },
-    { keyword: '검색기록0', date: '12.01' },
+    { keyword: '카레우동', date: '12.03' },
+    { keyword: '계란찜', date: '12.02' },
+    { keyword: '연어샐러드', date: '12.01' },
   ],
 
   list() {
