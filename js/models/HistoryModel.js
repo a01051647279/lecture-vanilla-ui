@@ -1,3 +1,5 @@
+import { formatDate } from '../utils/date.js'
+
 export default {
   data: [
     { keyword: '검색기록2', date: '12.03' },
@@ -16,7 +18,7 @@ export default {
       this.remove(keyword)
     }
 
-    const date = '07.20'
+    const date = formatDate()
     this.data = [{ keyword, date }, ...this.data]
   },
 
