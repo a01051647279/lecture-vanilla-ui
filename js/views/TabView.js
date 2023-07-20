@@ -9,6 +9,8 @@ TabView.setup = function (el) {
 
   this.setActiveTab('추천 검색어')
   this.bindEvents()
+
+  return this
 }
 
 TabView.setActiveTab = function (tabName) {
@@ -25,6 +27,7 @@ TabView.bindEvents = function () {
 
 TabView.handleClick = function (content) {
   this.setActiveTab(content)
+  this.emit('@change', { tabName: content })
 }
 
 export default TabView
