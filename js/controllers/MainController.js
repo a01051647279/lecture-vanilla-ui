@@ -42,15 +42,19 @@ export default {
 
   onSubmitForm(input) {
     this.search(input)
+    KeywordView.hide()
   },
 
   onResetForm() {
     ResultView.hide()
+    KeywordView.show()
   },
 
   onClickKeyword(keyword) {
     this.search(keyword)
     KeywordView.hide()
     TabView.hide()
+    FormView.inputEl.value = keyword
+    FormView.showResetBtn(true)
   },
 }
