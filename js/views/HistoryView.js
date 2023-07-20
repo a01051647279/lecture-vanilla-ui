@@ -39,13 +39,22 @@ HistoryView.createHTMLString = function (items) {
 }
 
 HistoryView.bindEvents = function () {
-  this.el
-    .querySelector('ul')
-    .addEventListener('click', (e) => this.handleClick(e))
+  this.el.querySelectorAll('li').forEach((li) => {
+    li.addEventListener('click', (e) => this.handleClick(e))
+  })
+
+  this.el.querySelectorAll('.btn-remove').forEach((btn) => {
+    btn.addEventListener('click', (e) => this.handleRemove(e))
+  })
 }
 
 HistoryView.handleClick = function (e) {
+  if (e.target !== e.currentTarget) return
   this.emit('@click', { keyword: e.target.dataset.keyword })
+}
+
+HistoryView.handleRemove = function (e) {
+  this.emit('@remove', { keyword: e.target.parentNode.dataset.keyword })
 }
 
 export default HistoryView

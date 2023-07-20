@@ -24,6 +24,7 @@ export default {
 
     HistoryView.setup(document.querySelector('#search-history')) //
       .on('@click', (e) => this.onClickHistory(e.detail.keyword))
+      .on('@remove', (e) => this.onRemoveHistory(e.detail.keyword))
 
     TabView.setup(document.querySelector('#tabs')) //
       .on('@change', (e) => this.onChangeTab(e.detail.tabName))
@@ -89,5 +90,10 @@ export default {
     HistoryView.hide()
     FormView.inputEl.value = keyword
     FormView.showResetBtn(true)
+  },
+
+  onRemoveHistory(keyword) {
+    HistoryModel.remove(keyword)
+    this.onSearchHistory()
   },
 }
