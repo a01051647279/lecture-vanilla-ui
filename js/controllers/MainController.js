@@ -22,7 +22,8 @@ export default {
       .render(await this.onSearchKeyword())
       .on('@click', (e) => this.onClickKeyword(e.detail.keyword))
 
-    HistoryView.setup(document.querySelector('#search-history'))
+    HistoryView.setup(document.querySelector('#search-history')) //
+      .on('@click', (e) => this.onClickHistory(e.detail.keyword))
 
     TabView.setup(document.querySelector('#tabs')) //
       .on('@change', (e) => this.onChangeTab(e.detail.tabName))
@@ -81,5 +82,10 @@ export default {
     TabView.hide()
     FormView.inputEl.value = keyword
     FormView.showResetBtn(true)
+  },
+
+  onClickHistory(keyword) {
+    this.search(keyword)
+    HistoryView.hide()
   },
 }
