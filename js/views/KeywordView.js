@@ -18,6 +18,9 @@ KeywordView.render = function (data = []) {
   this.el.innerHTML = data.length
     ? this.createHTMLString(data)
     : this.messages.NO_KEYWORD
+
+  this.bindEvents()
+  return this
 }
 
 KeywordView.createHTMLString = function (items) {
@@ -33,6 +36,18 @@ KeywordView.createHTMLString = function (items) {
       .join('') +
     `</ul>`
   )
+}
+
+KeywordView.bindEvents = function () {
+  this.el
+    .querySelector('.list')
+    .addEventListener('click', (e) =>
+      this.handleClick(e.target.dataset.keyword)
+    )
+}
+
+KeywordView.handleClick = function (keyword) {
+  this.emit('@click', { keyword })
 }
 
 export default KeywordView

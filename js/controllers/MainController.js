@@ -18,6 +18,7 @@ export default {
 
     KeywordView.setup(document.querySelector('#search-keyword')) //
       .render(await this.onSearchKeyword())
+      .on('@click', (e) => this.onClickKeyword(e.detail.keyword))
 
     TabView.setup(document.querySelector('#tabs'))
   },
@@ -45,5 +46,11 @@ export default {
 
   onResetForm() {
     ResultView.hide()
+  },
+
+  onClickKeyword(keyword) {
+    this.search(keyword)
+    KeywordView.hide()
+    TabView.hide()
   },
 }
